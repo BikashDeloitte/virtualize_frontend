@@ -68,7 +68,7 @@ gcloud_deploy:
       - ^LICENSE
     EOF
   - "cat app.yaml"
-  - echo $GCP_SERVICE_KEY > ${CI_PIPELINE_ID}.json
+  - echo $GCP_SERVICE_CREDS > ${CI_PIPELINE_ID}.json
   script:
   - gcloud auth activate-service-account --key-file $CI_PIPELINE_ID.json
   - gcloud --project hu18-groupa-java app deploy --version v1 --appyaml app.yaml
