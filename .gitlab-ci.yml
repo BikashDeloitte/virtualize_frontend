@@ -1,0 +1,25 @@
+stages:
+  - build
+  - deploy
+
+ 
+build_job:
+  image: node:12-alpine
+  stage: build
+  before_script:
+    - echo "Installing NPM Dependencies and building Angular Application"
+  script:
+    - npm install
+    - npm install -g @angular/cli
+    - ng build --prod --output-hashing none
+  tags:
+    - frontend_virtualize
+  only:
+    - master
+  cache:
+    key: install-cache
+    paths:
+      - node_modules/
+  artifacts:
+    paths:
+      - dist/
