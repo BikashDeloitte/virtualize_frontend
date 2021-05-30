@@ -45,7 +45,7 @@ gcloud_deploy:
     runtime: python27
     api_version: 1
     threadsafe: yes
-    service: hu19.2-visualize
+    service: visualize
     instance_class: B1
     manual_scaling:
         instances: 1
