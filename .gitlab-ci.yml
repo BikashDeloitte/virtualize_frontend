@@ -35,7 +35,7 @@ gcloud_deploy:
   tags:
   - visualize_frontend
   before_script:    
-  - "Servicename=hu19.2-visualize"
+  - "Servicename=visualize"
   - "echo $Servicename"
   - "ServiceName=${Servicename//-}"
   - "echo $ServiceName"
