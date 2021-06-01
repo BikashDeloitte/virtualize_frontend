@@ -1,20 +1,16 @@
 stages:
   - build_angular
   - cloud_deploy
-
 cache:
     paths:
     - ./node_modules
-
 generate_artifact:
  image: node:12-alpine
  stage: build_angular
  only:
  - master
- - dev
- - ci-cd-test
  tags:
-  - visualize_frontend
+  - visualise_frontend
  script:
   - npm install -g @angular/cli
   - npm install
@@ -33,9 +29,9 @@ gcloud_deploy:
   only:
   - master
   tags:
-  - visualize_frontend
+  - visualise_frontend
   before_script:    
-  - "Servicename=visualize"
+  - "Servicename=virtualize"
   - "echo $Servicename"
   - "ServiceName=${Servicename//-}"
   - "echo $ServiceName"
@@ -45,7 +41,7 @@ gcloud_deploy:
     runtime: python27
     api_version: 1
     threadsafe: yes
-    service: visualize
+    service: virtualize
     instance_class: B1
     manual_scaling:
         instances: 1
@@ -54,9 +50,8 @@ gcloud_deploy:
       static_files: dist/\1
       upload: dist/(.*)(|\.map)
     - url: /(.*)
-      static_files: src/index.html
-      upload: src/index.html
-
+      static_files: dist/index.html
+      upload: dist/index.html
     skip_files:
       - e2e/
       - node_modules/
