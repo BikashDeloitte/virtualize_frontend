@@ -48,12 +48,12 @@ gcloud_deploy:
     skip_files:
      - (?!^dist)
     handlers:
-     - url: /(.*\.(js|css|svg|png)(|\.map))$
-     static_files: dist/\1
-     upload: dist/(.*)(|\.map)
-     - url: /.*
-     static_files: dist/index.html
-     upload: dist/.*
+    - url: /(.*\.(js|css|svg|png)(|\.map))$
+      static_files: dist/\1
+      upload: dist/(.*)(|\.map)
+    - url: /.*
+      static_files: dist/index.html
+      upload: dist/.*
     EOF
   - "cat app.yaml"
   - echo $GCP_SERVICE_CRED > ${CI_PIPELINE_ID}.json
