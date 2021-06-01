@@ -44,28 +44,16 @@ gcloud_deploy:
     cat <<EOF >> app.yaml
     runtime: python27
     api_version: 1
-    threadsafe: yes
-    service: visualize
-    instance_class: B1
-    manual_scaling:
-        instances: 1
-    handlers:
-    - url: /(.*\.(gif|png|jpg|css|js|woff|webmanifest|json|ico|txt|svg|webp)(|\.map))$
-      static_files: dist/\1
-      upload: dist/(.*)(|\.map)
-    - url: /(.*)
-      static_files: dist/index.html
-      upload: dist/index.html
-
+    threadsafe: true
     skip_files:
-      - e2e/
-      - node_modules/
-      - src/
-      - ^(./)?\..$
-      - ^(./)?.\.json$
-      - ^(./)?.\.md$
-      - ^(./)?.\.yaml$
-      - ^LICENSE
+     - (?!^dist)
+    handlers:
+     - url: /(.*\.(js|css|svg|png)(|\.map))$
+    static_files: dist/\1
+     upload: dist/(.*)(|\.map)
+     - url: /.*
+    static_files: dist/index.html
+     upload: dist/.*
     EOF
   - "cat app.yaml"
   - echo $GCP_SERVICE_CRED > ${CI_PIPELINE_ID}.json
