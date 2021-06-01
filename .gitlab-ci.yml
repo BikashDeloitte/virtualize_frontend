@@ -54,8 +54,8 @@ gcloud_deploy:
       static_files: dist/\1
       upload: dist/(.*)(|\.map)
     - url: /(.*)
-      static_files: dist/index.html
-      upload: dist/index.html
+      static_files: src/index.html
+      upload: src/index.html
 
     skip_files:
       - e2e/
