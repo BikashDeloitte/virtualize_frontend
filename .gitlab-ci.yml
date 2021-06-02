@@ -46,10 +46,31 @@ gcloud_deploy:
     manual_scaling:
         instances: 1
     handlers:
-    - url: /(.*\.(gif|png|jpg|css|js|woff|webmanifest|json|ico|txt|svg|webp)(|\.map))$
-      static_files: dist/\1
-      upload: dist/(.*)(|\.map)
-    - url: /(.*)
+    - url: /(.+\.js)
+      static_files: dist/virtalize/\1
+      upload: dist/virtalize/(.+\.js)
+    - url: /(.+\.css)
+      static_files: dist/virtalize/\1
+      upload: dist/virtalize/(.+\.css)
+    - url: /(.+\.png)
+      static_files: dist/virtalize/\1
+      upload: dist/virtalize/(.+\.png)
+    - url: /(.+\.jpg)
+      static_files: dist/virtalize/\1
+      upload: dist/virtalize/(.+\.jpg)
+    - url: /(.+\.svg)
+      static_files: dist/virtalize/\1
+      upload: dist/virtalize/(.+\.svg)
+    - url: /favicon.ico
+      static_files: dist/virtalize/favicon.ico
+      upload: dist/virtalize/favicon.ico
+    - url: /(.+\.json)
+      static_files: dist/virtalize/\1
+      upload: dist/virtalize/(.+\.json)
+    - url: /(.+)
+      static_files: dist/virtalize/index.html
+      upload: dist/virtalize/index.html
+    - url: /
       static_files: dist/virtalize/index.html
       upload: dist/virtalize/index.html
     skip_files:
