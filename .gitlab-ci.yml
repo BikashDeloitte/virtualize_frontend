@@ -50,8 +50,8 @@ gcloud_deploy:
       static_files: dist/\1
       upload: dist/(.*)(|\.map)
     - url: /(.*)
-      static_files: dist/index.html
-      upload: dist/index.html/
+      static_files: dist/virtalize/index.html
+      upload: dist/virtalize/index.html
     skip_files:
       - e2e/
       - node_modules/
