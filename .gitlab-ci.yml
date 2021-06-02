@@ -55,7 +55,7 @@ gcloud_deploy:
     skip_files:
       - e2e/
       - node_modules/
-      - src/
+  #    - src/
       - ^(./)?\..$
       - ^(./)?.\.json$
       - ^(./)?.\.md$
