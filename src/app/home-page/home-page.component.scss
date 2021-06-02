@@ -1,0 +1,38 @@
+//default setting 
+p{
+    margin: 0;
+    font-size: 1vw;
+    font-family: SuisseIntl,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+
+//heading
+h2{
+    padding: 2vw;
+    padding-bottom: 0px;
+    color: #f37c2b;
+}
+
+//angular material for grid
+mat-grid-list{
+    margin: 2vw;
+}
+
+//particular cell in grid
+mat-grid-tile {
+    border-radius: 10px;
+    box-shadow: 5px 5px 4px black;
+    
+    //image of product type
+    .typesOfProductImage{
+        width: 100%;
+        height: 100%;
+    }
+    
+    //name of the types of product
+    .mat-grid-tile-footer{
+        justify-content: center;
+        &>p{
+            font-size: 2vw;
+        }
+    }
+}

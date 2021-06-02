@@ -1,0 +1,118 @@
+<section>
+    <h2>
+        <a [routerLink]="['/']">
+            HOME
+        </a>
+        >
+        <a [routerLink]="'/user-container/'+ productCategory">
+            {{productCategory}}
+        </a>
+        > PRODUCT DETAILS
+    </h2>
+    <div class="productDetail">
+        <!-- product image -->
+        <div>
+            <img src="{{productImageUrl}}{{productId}}">
+        </div>
+        <div>
+            <!-- product details -->
+            <div class="productInfo">
+                <p><strong>Product Details</strong></p>
+                <div>
+                    <div>
+                        <div class="productName">
+                            <p><strong>{{productData.brandName}}</strong></p>
+                            <p><strong>{{productData.productName}}</strong></p>
+                        </div>
+                        <div class="productType">
+                            <p>Type:</p>
+                            <p>{{productData.categoryType}}</p>
+                        </div>
+                        <div class="productRealPrice">
+                            <p>Price:</p>
+                            <p>Rs. {{productData.productPrice}}</p>
+                        </div>
+                        <div class="productDescription">
+                            <p>Description :</p>
+
+                            <div class="Product_toggle_arrow"
+                                *ngIf="productExpansionPlane == 0; else productExpansionPlaneElse">
+                                <img src="../../assets/images/toggle_arrow_down.png"
+                                    (click)="onProductExpansionPlane()">
+                            </div>
+                            <ng-template #productExpansionPlaneElse>
+                                <div class="Product_toggle_arrow">
+                                    <img src="../../assets/images/toggle_arrow_up.jpg"
+                                        (click)="onProductExpansionPlane()">
+                                </div>
+                            </ng-template>
+                        </div>
+                        <div class="discountDescription"
+                            [ngStyle]="{display: productExpansionPlane == 0 ? 'none' : 'block'}">
+                            <p>{{productData.productDescription}}</p>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- product discount -->
+            <div class="productOffer" *ngIf="productData.productDiscounts.length != 0">
+                <p><strong>OFFER</strong></p>
+                <div class="productDiscount" *ngFor="let item of productData.productDiscounts; index as i">
+                    <div>
+                        <div class="productDiscountName">
+                            <p>{{productData.productDiscounts[i].discountName}}</p>
+                        </div>
+                        <div class="productDiscountPercentage">
+                            <p>{{productData.productDiscounts[i].discountPercentage}}%</p>
+                        </div>
+                        <div class="productDiscountExpireTitle">
+                            <p>Expire Date: </p>
+                        </div>
+                        <div class="productDiscountExpireDays"
+                            *ngIf="calculateDiffDays(productData.productDiscounts[i].endDate) == 0; else elseBlock">
+                            <div>
+                                <p>Today is the last day</p>
+                            </div>
+                        </div>
+                        <!-- else part of expire date -->
+                        <ng-template #elseBlock>
+                            <div class="productDiscountExpireDays"
+                                *ngIf="calculateDiffDays(productData.productDiscounts[i].endDate)==-1; else elseElseBlock">
+                                <p>not given or Expire</p>
+                            </div>
+                            <ng-template #elseElseBlock>
+                                <div class="productDiscountExpireDays">
+                                    <p>{{calculateDiffDays(productData.productDiscounts[i].endDate)}} more days to go
+                                    </p>
+
+                                </div>
+                            </ng-template>
+                        </ng-template>
+
+                        <!--explansion plane-->
+                        <div class="titleDescription">
+                            <p>
+                                Description
+                            </p>
+                        </div>
+                        <div class="toggle_arrow" *ngIf="expansionPlane[i] == 0; else expansionPlaneElse">
+                            <img src="../../assets/images/toggle_arrow_down.png" (click)="onExpansionPlane(i)">
+                        </div>
+                        <ng-template #expansionPlaneElse>
+                            <div class="toggle_arrow">
+                                <img src="../../assets/images/toggle_arrow_up.jpg" (click)="onExpansionPlane(i)">
+                            </div>
+                        </ng-template>
+                        <div class="discountDescription"
+                            [ngStyle]="{display: expansionPlane[i] == 0 ? 'none' : 'block'}">
+                            <p>{{productData.productDiscounts[i].discountDescription}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

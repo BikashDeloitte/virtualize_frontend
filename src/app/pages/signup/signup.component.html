@@ -1,0 +1,89 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <mat-card class="signup-box">
+                    <div class="container text-center">
+                        <img src="assets\Virtualize_Logo.png" alt="" srcset="" style="max-width: 140px;">
+                    </div>
+                    <h1 class="text-center">Register</h1>
+
+                    <form #signupForm="ngForm" (ngSubmit)="formSubmit()">
+
+                        <!-- UserName Field -->
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>User Name</mat-label>
+                            <input required #username="ngModel" [(ngModel)]="user.userName" name=userName matInput placeholder="Enter Here">
+                            <mat-hint *ngIf="username.invalid && username.touched" class="error">User name is required</mat-hint>
+
+                        </mat-form-field>
+
+
+                        <!-- PassWord Field -->
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>User Password</mat-label>
+                            <!-- Minimum four characters, at least one letter, one number and one special character: -->
+                            <input required #password="ngModel" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{4,}$" [(ngModel)]="user.userPassword" name="userPassword" type="password" matInput placeholder="Enter Here">
+                            <mat-hint *ngIf="password.invalid && password.touched" class="error">Required Minimum four characters, at least one letter, one number and one special character!!</mat-hint>
+                        </mat-form-field>
+
+
+                        <!-- FirstName -->
+                        <!-- <mat-form-field class="full-width"appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input
+            [(ngModel)]="user.firstname"
+            name="firstname"
+             matInput placeholder="Enter Here">
+          </mat-form-field> -->
+
+
+                        <!-- LastName -->
+                        <!-- <mat-form-field class="full-width"appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input
+            [(ngModel)]="user.lastname"
+            name="lastname"
+             matInput placeholder="Enter Here">
+          </mat-form-field> -->
+
+
+                        <!-- Email -->
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Email Address</mat-label>
+                            <input required #email="ngModel" email [(ngModel)]="user.userEmail" name="userEmail" type="email" matInput placeholder="Enter Here">
+                            <mat-hint *ngIf="email.invalid && email.touched" class="error">Email not valid !!</mat-hint>
+                        </mat-form-field>
+
+
+                        <!-- Location -->
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Location</mat-label>
+                            <input required #location="ngModel" [(ngModel)]="user.location" name=location matInput placeholder="Enter Here">
+                            <mat-hint *ngIf="location.invalid && location.touched" class="error">Location is required</mat-hint>
+                        </mat-form-field>
+
+                        <!-- PhoneNumber -->
+                        <!-- <mat-form-field class="full-width"appearance="outline">
+            <mat-label>Contact Number</mat-label>
+            <input
+            [(ngModel)]="user.phone"
+            name="phone"
+            type="number" matInput placeholder="Enter Here">
+          </mat-form-field> -->
+
+                        <div class="container text-center">
+                            <button [disabled]="signupForm.invalid" type="submit" mat-raised-button color="primary">Register</button>
+                        </div>
+                    </form>
+                    <div class="container text-left">
+                        <button (click)="handleClear()" mat-raised-button color="accent">Clear</button>
+                    </div>
+
+
+                </mat-card>
+
+            </div>
+        </div>
+    </div>
+</div>

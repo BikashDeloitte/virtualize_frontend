@@ -2,3 +2,12 @@
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+html,
+ body { height: 100%;
+  background: #f5f5f5;;
+}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

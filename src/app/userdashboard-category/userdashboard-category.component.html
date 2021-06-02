@@ -1,0 +1,68 @@
+<div class="category" >
+
+    <!-- loader spinner in angular -->
+    <ngx-spinner bdOpacity=0.9 bdColor="#fff" size="medium" color="grey" type="ball-spin" [fullScreen]="false">
+      <p style="color: grey; width: 100%; height: 100%;"> Loading... </p>
+    </ngx-spinner>
+
+
+  <h3>Store</h3>
+  <div class="store">
+
+    <!-- this will print all availabe strore in category bar -->
+    <div *ngFor="let storeName of getAllStoreName()">
+      <input type="checkbox"  name="{{storeName}}" value="{{storeName}}" (change)= "getStore($event.target)">
+      <label title="{{storeName}}">{{storeName}}</label><br>
+    </div>
+  </div>
+
+  <h3>Product</h3>
+  <div class="store">
+    <!-- this will print all availabe product in category bar -->
+    <div *ngFor="let productName of getAllProductName()">
+      <input type="checkbox"  name="{{productName}}" value="{{productName}}" (change)= "getProduct($event.target)">
+      <label title="{{productName}}">{{productName}}</label><br>
+    </div>
+  </div>
+
+  <!-- price bar in category -->
+  <h3>Price</h3>
+  <div class="price" *ngFor="let price of priceBar">
+    <input type="checkbox"  name="price" value="{{price.value}}" [checked]="price.isSelected"  (change)= "getPrice($event.target)">
+    <label title="Price Less than {{price.value}}"> Less than {{price.value}}</label><br>
+  </div>
+
+  <!-- dicount bar in category -->
+  <h3>Discount</h3>
+  <div class="discount" *ngFor="let discount of discountBar">
+    <input type="checkbox"  name="Discount" value="{{discount.value}}" [checked]="discount.isSelected" (change)= "getDiscount($event.target)">
+    <label title="Discount {{ discount.value }}% & above"> {{ discount.value }}% & above</label><br>
+  </div>
+
+  <!-- this function will print the size of product -->
+  <!-- <h3>Size</h3>
+  <div class="size">
+    <input type="checkbox"  name="S" value="S" (change)= "getSize($event.target)">
+    <label>Small</label><br>
+
+    <input type="checkbox"  name="M" value="M" (change)= "getSize($event.target)">
+    <label>Medium</label><br>
+
+    <input type="checkbox"  name="L" value="L" (change)= "getSize($event.target)">
+    <label>Large</label><br>
+  </div> -->
+
+  <!-- this function will print the gender in category bar -->
+  <!-- <h3>Gender</h3>
+  <div class="gender">
+    <input type="checkbox"  name="Male" value="Male" (change)= "getGender($event.target)" >
+    <label>Male</label><br>
+
+    <input type="checkbox"  name="Female" value="Female" (change)= "getGender($event.target)">
+    <label>Female</label><br>
+
+    <input type="checkbox"  name="Unisex" value="Unisex" (change)= "getGender($event.target)">
+    <label>Unisex</label><br>
+  </div> -->
+  
+</div>

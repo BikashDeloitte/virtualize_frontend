@@ -1,0 +1,21 @@
+<!-- show the first three recommedation and they are remove from static recommedation -->
+<app-slide-recommedation></app-slide-recommedation>
+
+<!-- startingIndaex is use for creating subarray which contain only 4 recommedation and 
+     index start with 0 -->
+<app-static-recommedation [startingIndex]="0"></app-static-recommedation>
+
+<h2>TYPES OF PRODUCT</h2>
+<!-- grid -->
+<mat-grid-list cols="4" gutterSize="2vw">
+    <!-- grid cell -->
+    <mat-grid-tile *ngFor="let type of typesOfProduct;  let i = index">
+        <img class="typesOfProductImage" src="{{typesOfProductImage[i]}}" (click)="onTypeOfProduct(type)"
+            [routerLink]="'/user-container/'+ type">
+        <mat-grid-tile-footer (click)="onTypeOfProduct(type)" [routerLink]="'/user-container/'+ type">{{type}}
+        </mat-grid-tile-footer>
+    </mat-grid-tile>
+</mat-grid-list>
+
+<app-static-recommedation [startingIndex]="4"></app-static-recommedation>
+<app-static-recommedation [startingIndex]="6"></app-static-recommedation>

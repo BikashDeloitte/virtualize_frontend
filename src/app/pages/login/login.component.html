@@ -1,0 +1,54 @@
+<div class="bootstrap-wrapper" [class.changestyle]="check">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6 offset-md-3">
+
+              <mat-card id="login-box">
+
+                  <div class="container text-center ">
+                      <img src="assets\Virtualize_Logo.png" alt="" srcset="" style="max-width: 140px;">
+                  </div>
+                  <h1 class="text-center">Login</h1>
+                  <form (ngSubmit)="formSubmit()">
+                      <!-- UserName Field -->
+                      <mat-form-field class="full-width" appearance="outline">
+                          <mat-label>Email</mat-label>
+                          <input [(ngModel)]="login.id" name=id matInput placeholder="Enter Here">
+                      </mat-form-field>
+
+                      <!-- PassWord Field -->
+
+                      <mat-form-field class="full-width" appearance="outline">
+                          <mat-label>Password</mat-label>
+                          <input [(ngModel)]="login.password" name="password" type="password" matInput placeholder="Enter Here">
+                      </mat-form-field>
+
+                      <!-- Radio buttons -->
+                      <div class="container text-left">
+                          <mat-radio-group class="full-width" aria-label="Select an option">
+                              <mat-radio-button (click)="loginUser()" value="1">USER</mat-radio-button>
+                              <mat-radio-button style="margin-left:1%" (click)="loginAdmin()" value="2">ADMIN</mat-radio-button>
+                          </mat-radio-group>
+                      </div>
+
+                      <div class="container text-center" style="margin-top:20px;">
+                          <button type="submit" mat-raised-button color="primary">Login</button>
+                          <button style="margin-left:1%" type="reset" mat-raised-button color="primary">Reset</button>
+                      </div>
+                      <div class="container text-center" style="margin-top:20px;">
+                          <a class="btn btn-danger" style="margin-left:1%" routerLink="/forgot-password" role="button">Forgot Password</a>
+                      </div>
+
+                      <hr>
+                      <div class="container text-right">
+                          <a class="btn btn-danger" routerLink="/signup" role="button" (click)="func()">SignUp</a>
+                      </div>
+                  </form>
+              </mat-card>
+          </div>
+      </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
+
+

@@ -1,0 +1,23 @@
+<mat-card>
+  <h1>ALL STORES</h1>
+  <div class="text-right">
+    <button routerLink="/admin/add-store" mat-raised-button color="accent">Add New Store</button>
+</div>
+  <mat-list>
+    <mat-list-item *ngFor="let s of userStores">
+      <h3 style="color: rgb(177, 106, 106);" mat-line>{{s.shopName}}</h3>
+      <p mat-line>{{s.shopLocation}}</p>
+      <mat-icon mat-list-icon>store</mat-icon>
+      <button (click)="addProduct(s)" routerLink="/admin/add-product" mat-flat-button color="primary" style="margin-right: 2%;">Add Product</button>
+      <button (click)="onUpdateStore(s)" routerLink="/admin/update-store" mat-flat-button color="primary" style="margin-right: 2%;">Update</button>
+      <button (click)="onDelStore(s)" mat-flat-button color="warn" style="margin-right: 2%;">Delete</button>
+      <p mat-line style="color: rgb(52, 111, 179);">This is Description of Shop</p>
+      <mat-divider></mat-divider>
+      <!-- <h5 class="float-right float-top" style="color: indigo;">Shop Location</h5> -->
+    </mat-list-item>
+  </mat-list>
+  <!-- <div class="container text-center" style="margin-top: 1%;">
+    <button routerLink="/admin/add-store"   mat-raised-button color="primary">Add New Store</button>
+
+  </div> -->
+</mat-card>

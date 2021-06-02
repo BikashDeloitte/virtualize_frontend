@@ -1,0 +1,58 @@
+<mat-card >
+  <h1>Update PRODUCT</h1>
+  <mat-card-content>
+    <div class="bootstrap-wrapper">
+      <div class="col-md-8 offset-md-3" style="margin-bottom: 2%;">
+        <h3>Insert Your Product Image</h3>
+        <img [src]="url" height="100"><br>
+        <input type="file" (change)="onselectFile($event)">
+        <!-- <button type="button" >Upload Image</button> -->
+      </div>
+
+      <div class="row">
+        <div class="col-md-8 offset-md-3">
+          <form (ngSubmit)="formSubmit()">
+
+            <mat-form-field class="width100" appearance="outline">
+              <mat-label>Product Name</mat-label>
+              <input type="text" name="title" matInput
+              required
+              [(ngModel)]="updproduct.productName"
+              placeholder="Enter Product Name">
+            </mat-form-field>
+
+            <mat-form-field style="margin-right: 2%;" appearance="outline">
+              <mat-label>Category Type</mat-label>
+              <input type="text" name="category" matInput
+              required
+              [(ngModel)]="updproduct.categoryType"
+              placeholder="Enter Category">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Product Price</mat-label>
+              <input type="number" name="price" matInput
+              required
+              [(ngModel)]="updproduct.productPrice"
+              placeholder="Enter Price">
+            </mat-form-field>
+
+            <mat-form-field class="width100" appearance="outline">
+              <mat-label>Description</mat-label>
+              <textarea  name="description" matInput
+              rows="15"
+              [(ngModel)]="updproduct.productDescription"
+              placeholder="Enter Product Description"></textarea>
+
+            </mat-form-field>
+            <div class="container text-center" style="margin-top: 2%;">
+            <button style="margin-right: 2%;" type="submit" mat-raised-button color="primary">Add</button>
+            <button type="reset" mat-raised-button color="primary">Reset</button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

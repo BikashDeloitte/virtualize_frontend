@@ -1,0 +1,21 @@
+<!-- slide recommedation image container -->
+<div class="slideshowContainer">
+  <div class="mySlides">
+    <img src="{{recommedationImage}}{{imageIds[imageId].recommendId}}"
+      (click)="onTypeOfProduct(imageIds[imageId].categoryType)"
+      [routerLink]="'/user-container/'+imageIds[imageId].categoryType">
+  </div>
+
+  <!-- button to move slide -->
+  <a class="prev" (click)="plusSlidesPrev()">&#10094;</a>
+  <a class="next" (click)="plusSlidesNext()">&#10095;</a>
+
+
+  <!-- dots which are place below -->
+  <div class="dotsOnSlide">
+    <div class="dot" (click)="currentSlide(0)"></div>
+    <div class="dot" (click)="currentSlide(1)"></div>
+    <div class="dot" (click)="currentSlide(2)"></div>
+  </div>
+
+</div>
