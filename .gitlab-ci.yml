@@ -46,12 +46,11 @@ gcloud_deploy:
     manual_scaling:
         instances: 1
     handlers:
-    - url: /(.*\.(gif|png|jpg|css|js|woff|webmanifest|json|ico|txt|svg|webp)(|\.map))$
-      static_files: dist/\1
-      upload: dist/(.*)(|\.map)
-    - url: /(.*)
+    - url: /
       static_files: dist/index.html
       upload: dist/index.html
+    - url: /
+      static_dir: dist/
     skip_files:
       - e2e/
       - node_modules/
