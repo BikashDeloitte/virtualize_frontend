@@ -47,32 +47,32 @@ gcloud_deploy:
         instances: 1
     handlers:
     - url: /(.+\.js)
-      static_files: dist/virtalize/\1
-      upload: dist/virtalize/(.+\.js)
+      static_files: dist/Virtalize/\1
+      upload: dist/Virtalize/(.+\.js)
     - url: /(.+\.css)
-      static_files: dist/virtalize/\1
-      upload: dist/virtalize/(.+\.css)
+      static_files: dist/Virtalize/\1
+      upload: dist/Virtalize/(.+\.css)
     - url: /(.+\.png)
-      static_files: dist/virtalize/\1
-      upload: dist/virtalize/(.+\.png)
+      static_files: dist/Virtalize/\1
+      upload: dist/Virtalize/(.+\.png)
     - url: /(.+\.jpg)
-      static_files: dist/virtalize/\1
-      upload: dist/virtalize/(.+\.jpg)
+      static_files: dist/Virtalize/\1
+      upload: dist/Virtalize/(.+\.jpg)
     - url: /(.+\.svg)
-      static_files: dist/virtalize/\1
-      upload: dist/virtalize/(.+\.svg)
+      static_files: dist/Virtalize/\1
+      upload: dist/Virtalize/(.+\.svg)
     - url: /favicon.ico
-      static_files: dist/virtalize/favicon.ico
-      upload: dist/virtalize/favicon.ico
+      static_files: dist/Virtalize/favicon.ico
+      upload: dist/Virtalize/favicon.ico
     - url: /(.+\.json)
-      static_files: dist/virtalize/\1
-      upload: dist/virtalize/(.+\.json)
+      static_files: dist/Virtalize/\1
+      upload: dist/Virtalize/(.+\.json)
     - url: /(.+)
-      static_files: dist/virtalize/index.html
-      upload: dist/virtalize/index.html
+      static_files: dist/Virtalize/index.html
+      upload: dist/Virtalize/index.html
     - url: /
-      static_files: dist/virtalize/index.html
-      upload: dist/virtalize/index.html
+      static_files: dist/Virtalize/index.html
+      upload: dist/Virtalize/index.html
     skip_files:
       - e2e/
       - node_modules/
