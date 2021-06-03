@@ -29,7 +29,7 @@ gcloud_deploy:
   only:
   - master
   tags:
-  - visualise_frontend
+  - runner-5
   before_script:
   - "Servicename=virtualize"
   - "echo $Servicename"
