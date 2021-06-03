@@ -31,39 +31,38 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     // it will show loading spinner
-    this.spinnerService.show("abc");
+    this.spinnerService.show();
 
     //for product data
     this._productDataService.fetchProductData().subscribe((Response: any) => {
       this.productData = Response;
       // it will hide loading spinner
-      this.spinnerService.hide("abc");
+      this.spinnerService.hide();
     });
 
     setTimeout(() => {
-      this.spinnerService.hide("abc");
+      this.spinnerService.hide();
     }, 8000);
 
     //going to user dashboard through url
     this.routerValue.params.subscribe((Data) => {
-      if (typeof (this.typeOfProduct) == "undefined") {
-        this.typeOfProduct = Data.type
-        this._productDataService.typeOfProduct(Data.type)
+      //setting the category in local store
+        this._sendProductDetail.setCategory(Data.type);
 
-        //for product data
+        //for product data again calling product details
         this._productDataService.fetchProductData().subscribe((Response: any) => {
           this.productData = Response;
           // it will hide loading spinner
-          this.spinnerService.hide("abc");
+          this.spinnerService.hide();
         });
-      }
+      // }
     })
   }
 
   //dialog box
-  onClickProductData($event: Event) {
+  onClickProductData(event: any) {
     this.flag2 = 1;
-    this.flag = Number((<HTMLInputElement>$event.target).alt);
+    this.flag = event;
 
     //dialog box product data
     this.productData.forEach(product => {
@@ -93,11 +92,12 @@ export class DashboardComponent implements OnInit {
   }
 
   //send data of product to service
-  onClickSendProductDetail($event: any) {
+  onClickSendProductDetail(event: any) {
+
     this.productData.forEach(element => {
-      if (element.productId == $event.target.target) {
+      if (element.productId == event) {
         const category = element.categoryType
-        this._sendProductDetail.set($event.target.target, category)
+        this._sendProductDetail.set(event)
       }
     })
   }

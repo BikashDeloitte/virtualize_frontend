@@ -9,9 +9,8 @@ export class ParticularProductDetailService {
   constructor() { }
 
   //setting local store (productId)
-  set(data: any,category:any): void {
+  set(data: any): void {
       localStorage.setItem('key', JSON.stringify(data));
-      this.setCategory(category)
   }
 
   //setting local store (product category)

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import { throwError } from 'rxjs';
@@ -8,7 +8,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 @Injectable({
   providedIn: 'root'
 })
-export class ProductDataService {
+export class ProductDataService{
 
    http:HttpClient;
     type:any
@@ -16,18 +16,28 @@ export class ProductDataService {
   constructor(http:HttpClient, private spinnerService: NgxSpinnerService) {
     this.http = http;
   }
+  
+  //getting category from local storage and storing it in type
+  getCategory(){
+    this.type = localStorage.getItem('category');
+    const length = this.type.length
+    this.type = this.type.substring(1,this.type.length-1)
+  }
 
   /**
    * This function will fetch all the product details form apis.
    */
    fetchProductData(){
+    // if (this.type == undefined) {
+      this.getCategory()
+    // }
     const productDataUrl= environment.productUrl + "/" + this.type;
     return this.http.get(productDataUrl).pipe(retry(1),catchError(this.httpErrorProduct));
   }
 
   //getting and storing the tpye of product
   typeOfProduct(type: String){
-     this.type=type;
+    localStorage.setItem('category', JSON.stringify(type));
   }
 
   //error handling for product api fail

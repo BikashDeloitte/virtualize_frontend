@@ -19,6 +19,7 @@ export class ProductPageComponent implements OnInit {
   productCategory: any
   expansionPlane = [];
   productExpansionPlane = 0;
+  loaded = false;
 
   constructor(private _productDataService: ProductDataService, private _particularProductDataService: ParticularProductDetailService) {
   }
@@ -32,6 +33,8 @@ export class ProductPageComponent implements OnInit {
       this.productId = parseInt(JSON.parse(this._particularProductDataService.get()))
       this.product = Response;
       this.storeParticularProductDetail();
+      this.loaded = true;
+      
     });
 
   }
@@ -52,7 +55,13 @@ export class ProductPageComponent implements OnInit {
       if (element.productId == this.productId) {
         this.productData = element;
       }
-      //array with 1 for explansion plane
+    });
+    this._productDataService.getCategory();
+  }
+
+  //array with 0 for explansion plane to differentiate decsribsion of discount
+  differentiateDiscount(){
+    this.productData.productDiscounts.forEach(element => {
       this.expansionPlane.push(0);
     });
   }

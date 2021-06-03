@@ -3,6 +3,7 @@ $base-hover-color: #944d1e;
 $base-box-word-color: #fff;
 $base-name-color: #312b2b;
 $base-real-price-color: #9f9f9f;
+$base-background-color: #fff;
 
 body{
     line-height: 0%;
@@ -21,7 +22,7 @@ p
 {
     display: grid;
     grid-template-columns: repeat(4, 23.8%);
-    width: 100%;
+    width: 99%;
     gap: 2%;
 }
 
@@ -41,6 +42,7 @@ img
     height: 100%;
     display: grid;
     line-height: initial;
+    background-color: $base-background-color;
 
     &>div{
         margin: 1.5vw;
@@ -174,17 +176,6 @@ img
 
     &>p{
         font-size: 2vw;
-    }
-}
-
-//product Sizes in dialog box
-.dialogBoxProductSizes{
-    display: flex;
-    justify-content: space-between;
-
-    &>p{
-        font-size: 2vw;
-        color: $base-color;
     }
 }
 

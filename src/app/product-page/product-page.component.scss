@@ -2,6 +2,7 @@ $box-shadow-color: #00000029;
 $name-color:#666;
 $base-color:#f37c2b;
 $title-color:#fff;
+$background-color: #fff;
 
 //card padding and box-shadow
 @mixin card($padding-value) {
@@ -48,8 +49,10 @@ p{
     gap: 1vw;
     margin: 2vw;
 
-    &>div{
-
+    .productImage{
+        background-color: $background-color;
+        height: fit-content;
+        border-radius: 2vw;
         //image of product
         >img{
             @include card(1vw);
@@ -65,6 +68,8 @@ p{
 
         .productInfo,.productOffer{
             @include card(1vw);
+            background-color: $background-color;
+            border-radius: 2vw;
         }
 
         //product discounts

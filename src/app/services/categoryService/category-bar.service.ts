@@ -18,7 +18,6 @@ export class CategoryBarService {
    */
    fetchStoresNames(productType: string) {
     const storeNameUrl = environment.productCategoryStoresUrl + "/" + productType;
-    console.log("storeNameUrl:  " + storeNameUrl);
     return this.http.get(storeNameUrl).pipe(retry(1),catchError(this.httpErrorProduct));
   }
 
@@ -27,7 +26,6 @@ export class CategoryBarService {
    */
   fetchProductNames(productType: string) {
     const proudctNameUrl = environment.productCategoryProductsUrl + "/" + productType;
-    console.log("proudctNameUrl:  " + proudctNameUrl);
     return this.http.get(proudctNameUrl).pipe(retry(1),catchError(this.httpErrorProduct));
   }
 
@@ -36,7 +34,6 @@ export class CategoryBarService {
    */
   fetchProductData(productType: string){
     const productDataUrl= environment.productUrl + "/" + productType;
-    console.log("productDataUrl: " + productDataUrl);
     return this.http.get(productDataUrl).pipe(retry(1),catchError(this.httpErrorProduct));
   }
 

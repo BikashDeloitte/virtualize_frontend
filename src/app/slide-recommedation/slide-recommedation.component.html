@@ -1,9 +1,11 @@
+<!-- remove of error this was happaning due to ngOnInit slow loading -->
+<ng-container *ngIf="loaded">
 <!-- slide recommedation image container -->
 <div class="slideshowContainer">
   <div class="mySlides">
-    <img src="{{recommedationImage}}{{imageIds[imageId].recommendId}}"
-      (click)="onTypeOfProduct(imageIds[imageId].categoryType)"
-      [routerLink]="'/user-container/'+imageIds[imageId].categoryType">
+      <img src="{{recommedationImage}}{{imageIds[imageId].recommendId}}"
+        (click)="onTypeOfProduct(imageIds[imageId].categoryType)"
+        [routerLink]="'/user-container/'+imageIds[imageId].categoryType">
   </div>
 
   <!-- button to move slide -->
@@ -19,3 +21,4 @@
   </div>
 
 </div>
+</ng-container>

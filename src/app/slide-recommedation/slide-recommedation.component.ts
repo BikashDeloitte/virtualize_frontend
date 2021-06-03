@@ -13,6 +13,8 @@ export class SlideRecommedationComponent implements OnInit {
   //index of array contain recommedation images id
   imageId = 0;
   imageIds: any
+  //remove of error this was happaning due to ngOnInit slow loading
+  loaded = false;
 
   // this variable conatin product image url fetch from environment.ts file.
   recommedationImage = environment.recommedationImage;
@@ -25,6 +27,7 @@ export class SlideRecommedationComponent implements OnInit {
     //array contain recommedation image ids
     this._recommedation.fetchRecommedationImageIds().subscribe(data => {
       this.imageIds = data
+      this.loaded = true;
     })
     this.autoSlider()
   }

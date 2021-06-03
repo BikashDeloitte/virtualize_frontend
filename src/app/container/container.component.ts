@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {  Component, ElementRef, OnInit } from '@angular/core';
 import { ProductData } from '../interfaces/product-data';
 
 @Component({
@@ -6,13 +6,14 @@ import { ProductData } from '../interfaces/product-data';
   templateUrl: './container.component.html',
   styleUrls: ['./container.component.scss']
 })
-export class ContainerComponent implements OnInit {
+export class ContainerComponent implements OnInit  {
   productData:ProductData[] = [];
 
-  constructor() { }
+  constructor(private elementRef: ElementRef) { }
 
   ngOnInit(): void {
   }
+
 
   /**
    * This function will fetch the data from child component.

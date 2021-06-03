@@ -1,3 +1,4 @@
+<ng-container *ngIf="loaded">
 <section>
     <h2>
         <a [routerLink]="['/']">
@@ -11,7 +12,7 @@
     </h2>
     <div class="productDetail">
         <!-- product image -->
-        <div>
+        <div class="productImage">
             <img src="{{productImageUrl}}{{productId}}">
         </div>
         <div>
@@ -21,8 +22,8 @@
                 <div>
                     <div>
                         <div class="productName">
-                            <p><strong>{{productData.brandName}}</strong></p>
-                            <p><strong>{{productData.productName}}</strong></p>
+                                <p><strong>{{productData.brandName}}</strong></p>
+                                <p><strong>{{productData.productName}}</strong></p>
                         </div>
                         <div class="productType">
                             <p>Type:</p>
@@ -51,8 +52,6 @@
                             [ngStyle]="{display: productExpansionPlane == 0 ? 'none' : 'block'}">
                             <p>{{productData.productDescription}}</p>
                         </div>
-
-
                     </div>
 
                 </div>
@@ -71,6 +70,7 @@
                         <div class="productDiscountExpireTitle">
                             <p>Expire Date: </p>
                         </div>
+                        <!--if part of expire date-->
                         <div class="productDiscountExpireDays"
                             *ngIf="calculateDiffDays(productData.productDiscounts[i].endDate) == 0; else elseBlock">
                             <div>
@@ -116,3 +116,4 @@
         </div>
     </div>
 </section>
+</ng-container>

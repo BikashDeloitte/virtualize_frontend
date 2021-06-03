@@ -2,7 +2,8 @@
 <div class="productBar">
 
     <!-- loader spinner in angular -->
-    <ngx-spinner name="abc" bdOpacity=0.9 bdColor="#fff" size="medium" color="grey" type="ball-spin" [fullScreen]="false">
+    <ngx-spinner name="abc" bdOpacity=0.9 bdColor="#fff" size="medium" color="grey" type="ball-spin"
+        [fullScreen]="false">
         <p style="color: grey; width: 100%; height: 100%;"> Loading... </p>
     </ngx-spinner>
 
@@ -21,8 +22,8 @@
                     <div class="discountPercentage" *ngIf="item.productDiscounts.length">
                         <p>{{ getMaximumDiscount(item.productDiscounts) }}% OFF</p>
                     </div>
-
-                    <img class="productImageBar" src="{{productImageUrl}}{{item.productId}}" [alt]="item.productId" (click)="onClickProductData($event)">
+                    <img class="productImageBar" src="{{productImageUrl}}{{item.productId}}" alt="product_image"
+                        (click)="onClickProductData(item.productId)">
                 </div>
 
                 <!--product details-->
@@ -40,14 +41,11 @@
 
                             <!-- it will show the discount price  -->
                             <div class="discountPrice">
-                                <p>Rs {{item.productPrice-(item.productPrice* getMaximumDiscount(item.productDiscounts)*0.01)}}
+                                <p>Rs {{item.productPrice-(item.productPrice*
+                                    getMaximumDiscount(item.productDiscounts)*0.01)}}
                                 </p>
                             </div>
-                        </div>
-
-                        <div *ngIf="item.productDiscounts[0] != 0">
-
-                        </div>
+                        </div> 
                     </div>
                 </div>
             </div>
@@ -80,17 +78,14 @@
                 <img src="{{productImageUrl}}{{dialogBoxProduct.productId}}" />
             </div>
 
-            <!--product price and size-->
+            <!--product price-->
             <div class="dialogBoxProductDetail">
-                <div class="dialogBoxProductSizes">
-                    <p>Size</p>
-                    <p>{{dialogBoxProduct.productSize}}</p>
-                </div>
                 <div>
                     <p id="dialogBoxPriceHeading"><b>Price</b></p>
                 </div>
                 <div class="dialogBoxProductPrice">
-                    <p>Rs {{dialogBoxProduct.productPrice-(dialogBoxProduct.productPrice*dialogBoxProduct.productDiscounts[0].discountPercentage*0.01)}}
+                    <p>Rs
+                        {{dialogBoxProduct.productPrice-(dialogBoxProduct.productPrice*dialogBoxProduct.productDiscounts[0].discountPercentage*0.01)}}
                     </p>
                     <p><s>Rs {{dialogBoxProduct.productPrice}}</s></p>
                     <p><strong>{{dialogBoxProduct.productDiscounts[0].discountPercentage}}% OFF</strong></p>
@@ -110,7 +105,7 @@
 
             <!--go to product detail page-->
             <div class="dialogBoxProductMoreDetail">
-                <a [routerLink]="'/product-page'" (click)="onClickSendProductDetail($event)" [target]="dialogBoxProduct.productId">
+                <a [routerLink]="'/product-page'" (click)="onClickSendProductDetail(dialogBoxProduct.productId)">
                     View more details
                 </a>
             </div>
@@ -139,15 +134,12 @@
                     <img src="{{productImageUrl}}{{dialogBoxProduct.productId}}" />
                 </div>
 
-                <!--product price and size-->
+                <!--product price-->
                 <div>
-                    <div class="dialogBoxProductSizes">
-                        <p>Size</p>
-                        <p>{{dialogBoxProduct.productSize}}</p>
-                    </div>
                     <!--go to product detail page-->
                     <div class="dialogBoxProductMoreDetail">
-                        <a [routerLink]="'/product-page'" (click)="onClickSendProductDetail($event)" [target]="dialogBoxProduct.productId">
+                        <a [routerLink]="'/product-page'" (click)="onClickSendProductDetail(dialogBoxProduct.productId)"
+                            target="product image">
                             View more details
                         </a>
                     </div>

@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import baseUrl from 'src/app/services/helper';
 
 @Component({
   selector: 'app-root',
@@ -12,12 +10,9 @@ export class AppComponent implements OnInit{
 
   footerVisible: boolean = true;
 
-  constructor(private activatedRoute: ActivatedRoute, private router : Router) {
-    console.log("baseUrl" + this.router.url);
+  constructor() {
   }
 
   ngOnInit(): void {
-    // this.href = this.router.url;
-    console.log("baseUrl" + this.router.url);
   }
 }
