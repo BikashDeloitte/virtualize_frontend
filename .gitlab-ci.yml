@@ -19,7 +19,7 @@ generate_artifact:
   paths:
     - dist/
  when: manual
- 
+
 gcloud_deploy:
   image: google/cloud-sdk:alpine
   stage: cloud_deploy
@@ -30,7 +30,7 @@ gcloud_deploy:
   - master
   tags:
   - visualise_frontend
-  before_script:    
+  before_script:
   - "Servicename=virtualize"
   - "echo $Servicename"
   - "ServiceName=${Servicename//-}"
@@ -46,33 +46,12 @@ gcloud_deploy:
     manual_scaling:
         instances: 1
     handlers:
-    - url: /(.+\.js)
-      static_files: dist/Virtalize/\1
-      upload: dist/Virtalize/(.+\.js)
-    - url: /(.+\.css)
-      static_files: dist/Virtalize/\1
-      upload: dist/Virtalize/(.+\.css)
-    - url: /(.+\.png)
-      static_files: dist/Virtalize/\1
-      upload: dist/Virtalize/(.+\.png)
-    - url: /(.+\.jpg)
-      static_files: dist/Virtalize/\1
-      upload: dist/Virtalize/(.+\.jpg)
-    - url: /(.+\.svg)
-      static_files: dist/Virtalize/\1
-      upload: dist/Virtalize/(.+\.svg)
-    - url: /favicon.ico
-      static_files: dist/Virtalize/favicon.ico
-      upload: dist/Virtalize/favicon.ico
-    - url: /(.+\.json)
-      static_files: dist/Virtalize/\1
-      upload: dist/Virtalize/(.+\.json)
-    - url: /(.+)
-      static_files: dist/Virtalize/index.html
-      upload: dist/Virtalize/index.html
-    - url: /
-      static_files: dist/Virtalize/index.html
-      upload: dist/Virtalize/index.html
+    - url: /(.*\.(gif|png|jpg|css|js|woff|webmanifest|json|ico|txt|svg|webp)(|\.map))$
+      static_files: dist/\1
+      upload: dist/(.*)(|\.map)
+    - url: /(.*)
+      static_files: dist/index.html
+      upload: dist/index.html
     skip_files:
       - e2e/
       - node_modules/
