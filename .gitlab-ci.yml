@@ -10,7 +10,7 @@ generate_artifact:
  only:
  - master
  tags:
-  - visualise_frontend
+  - runner-5
  script:
   - npm install -g @angular/cli
   - npm install
