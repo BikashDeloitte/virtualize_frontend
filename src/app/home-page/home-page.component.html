@@ -12,7 +12,10 @@
     <mat-grid-tile *ngFor="let type of typesOfProduct;  let i = index">
         <img class="typesOfProductImage" src="{{typesOfProductImage[i]}}" (click)="onTypeOfProduct(type)"
             [routerLink]="'/user-container/'+ type">
-        <mat-grid-tile-footer (click)="onTypeOfProduct(type)" [routerLink]="'/user-container/'+ type">{{type}}
+        <mat-grid-tile-footer (click)="onTypeOfProduct(type)" [routerLink]="'/user-container/'+ type">
+            <p>
+                {{type}}
+            </p>
         </mat-grid-tile-footer>
     </mat-grid-tile>
 </mat-grid-list>
