@@ -49,6 +49,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { FilterPipe } from './Pipes/filter.pipe';
 import { UpdateStoreComponent } from './pages/admin/update-store/update-store.component';
 import { UpdateProductComponent } from './pages/admin/update-product/update-product.component';
+import { NotificationBarComponent } from './notification-bar/notification-bar.component';
 
 
 @NgModule({
@@ -78,7 +79,8 @@ import { UpdateProductComponent } from './pages/admin/update-product/update-prod
     HomePageComponent,
     FilterPipe,
     UpdateStoreComponent,
-    UpdateProductComponent
+    UpdateProductComponent,
+    NotificationBarComponent
   ],
   imports: [
     BrowserModule,
