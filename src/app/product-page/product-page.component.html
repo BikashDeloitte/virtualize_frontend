@@ -48,7 +48,7 @@
                                 </div>
                             </ng-template>
                         </div>
-                        <div class="discountDescription"
+                        <div class="Description"
                             [ngStyle]="{display: productExpansionPlane == 0 ? 'none' : 'block'}">
                             <p>{{productData.productDescription}}</p>
                         </div>
@@ -98,15 +98,15 @@
                                 Description
                             </p>
                         </div>
-                        <div class="toggle_arrow" *ngIf="expansionPlane[i] == 0; else expansionPlaneElse">
-                            <img src="../../assets/images/toggle_arrow_down.png" (click)="onExpansionPlane(i)">
+                        <div class="toggle_arrow" *ngIf="expansionPlane[i] != 0; else expansionPlaneElse">
+                            <img src="../../assets/images/toggle_arrow_up.jpg" (click)="onExpansionPlane(i)">
                         </div>
                         <ng-template #expansionPlaneElse>
                             <div class="toggle_arrow">
-                                <img src="../../assets/images/toggle_arrow_up.jpg" (click)="onExpansionPlane(i)">
+                                <img src="../../assets/images//toggle_arrow_down.png" (click)="onExpansionPlane(i)">
                             </div>
                         </ng-template>
-                        <div class="discountDescription"
+                        <div class="Description"
                             [ngStyle]="{display: expansionPlane[i] == 0 ? 'none' : 'block'}">
                             <p>{{productData.productDiscounts[i].discountDescription}}</p>
                         </div>

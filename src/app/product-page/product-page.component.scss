@@ -3,6 +3,8 @@ $name-color:#666;
 $base-color:#f37c2b;
 $title-color:#fff;
 $background-color: #fff;
+$barcolor: rgb(185, 184, 184);
+$barcolordark: grey;
 
 //card padding and box-shadow
 @mixin card($padding-value) {
@@ -130,16 +132,24 @@ p{
                      .titleDescription{
                         padding-left: 1vw;
                     }
-
-                     .discountDescription{
-                         grid-column: span 2;
-                    }
                 }
             }
 
             //product discount hovering affect
             .productDiscount:hover{
                 box-shadow: 0px 3px 6px $base-color;
+            }
+        }
+
+        // Description of product and discount
+        .Description{
+            grid-column: span 2;
+            max-height: 40vw;
+            overflow: auto;
+            padding: 1vw;
+
+            &>p{
+                font-size: 1vw;
             }
         }
 
@@ -195,3 +205,26 @@ p{
 h2{
     margin-left: 2vw;
 }
+
+//scroll bar design
+::-webkit-scrollbar {
+    width: 2vh;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: $barcolor;
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: $barcolordark;
+  }
+  

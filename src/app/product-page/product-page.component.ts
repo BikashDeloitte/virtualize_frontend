@@ -17,7 +17,7 @@ export class ProductPageComponent implements OnInit {
   productData: any
   productImageUrl = environment.productImageUrl;
   productCategory: any
-  expansionPlane = [];
+  expansionPlane:number[] = [];
   productExpansionPlane = 0;
   loaded = false;
 
@@ -33,8 +33,8 @@ export class ProductPageComponent implements OnInit {
       this.productId = parseInt(JSON.parse(this._particularProductDataService.get()))
       this.product = Response;
       this.storeParticularProductDetail();
+      this.differentiateDiscount()
       this.loaded = true;
-      
     });
 
   }
@@ -59,7 +59,7 @@ export class ProductPageComponent implements OnInit {
     this._productDataService.getCategory();
   }
 
-  //array with 0 for explansion plane to differentiate decsribsion of discount
+  //array with 1 for explansion plane to differentiate decsribsion of discount
   differentiateDiscount(){
     this.productData.productDiscounts.forEach(element => {
       this.expansionPlane.push(0);
