@@ -20,14 +20,13 @@ export class DashboardComponent implements OnInit {
 
   flag = 0;
   flag2 = 0;
-  highPerLinkToGoProductDetail = environment.highPerLinkToGoProductDetail;
   dialogBoxProduct: any;
 
   constructor(private _productDataService: ProductDataService, private _sendProductDetail: ParticularProductDetailService, private routerValue: ActivatedRoute, private spinnerService: NgxSpinnerService) {
 
   }
 
-  typeOfProduct = this._productDataService.type
+  typeOfProduct = this._productDataService.getCategory()
 
   ngOnInit(): void {
     // it will show loading spinner

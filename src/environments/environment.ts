@@ -8,7 +8,6 @@ export const environment = {
   productCategoryProductsUrl: 'http://localhost:8090/productCategory/products',
   productUrl: 'http://localhost:8090/product',
   productImageUrl: 'http://localhost:8090/product/image/',
-  highPerLinkToGoProductDetail:'http://localhost:4200/product-page',
   recommedationImageIds: 'http://localhost:8090/recommend/showRecommend',
   recommedationImage: 'http://localhost:8090/recommend/bar/',
   storeImageUrl: 'http://localhost:8090/admin/shop/image/'

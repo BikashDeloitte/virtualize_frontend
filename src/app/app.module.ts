@@ -102,8 +102,6 @@ import { UpdateProductComponent } from './pages/admin/update-product/update-prod
     NgxPaginationModule,
     MatGridListModule,
     NgxSpinnerModule
-
-
   ],
   providers: [ProductDataService,ParticularProductDetailService,RecommedationService],
   bootstrap: [AppComponent]

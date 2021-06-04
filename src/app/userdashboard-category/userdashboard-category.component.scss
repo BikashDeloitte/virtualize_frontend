@@ -3,6 +3,7 @@ $buttoncolor:#f37c2b;
 $labelcolor: rgb(185, 184, 184);
 $barcolor: rgb(185, 184, 184);
 $barcolordark: grey;
+$cateory-background-color: #fff;
 
 @mixin  border {
     border: .001em solid rgb(214, 208, 208);
@@ -30,6 +31,7 @@ $barcolordark: grey;
   @include width-height(16%, 100%);
   @include overflow(hidden, auto);
   position: fixed;
+  background-color: $cateory-background-color;
 
   h3 {
     background-color: $labelcolor;

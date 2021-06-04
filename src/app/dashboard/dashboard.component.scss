@@ -36,7 +36,7 @@ img
 //product container
 .productItem
 {
-    box-shadow: 0px 3px 6px #00000029;
+    box-shadow: 0px 3px 6px rgb(0 0 0 / 50%);
     border-radius: 8%;
     width: 100%;
     height: 100%;
@@ -165,6 +165,7 @@ img
 
     &>div>p{
         font-size: 2vw;
+        padding-top: .2vw;
     }
 }
 
@@ -173,9 +174,12 @@ img
     overflow: hidden;
     text-overflow: ellipsis;
     color: $base-name-color;
+    height: 2.3vw;
 
     &>p{
         font-size: 2vw;
+        padding-top: 1vw;
+        line-height: 0;
     }
 }
 
@@ -204,6 +208,9 @@ img
     color: $base-box-word-color;
     background-color: $base-color;
     text-align: center;
+    height: 2vw;
+    padding-top: 1vw;
+    line-height: 0;
 }
 
 //dialogBox Offers of product
@@ -220,6 +227,9 @@ img
             padding: 0% 20%;
             border-radius: 6%;
             text-align: center;
+            height: 2vw;
+            padding-top: 1vw;
+            line-height: 0;
         }
     }
 }

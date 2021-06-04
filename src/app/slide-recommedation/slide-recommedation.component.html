@@ -5,7 +5,10 @@
   <div class="mySlides">
       <img src="{{recommedationImage}}{{imageIds[imageId].recommendId}}"
         (click)="onTypeOfProduct(imageIds[imageId].categoryType)"
-        [routerLink]="'/user-container/'+imageIds[imageId].categoryType">
+        [routerLink]="'/user-container/'+imageIds[imageId].categoryType">\
+        <div>
+          <p>{{count}}</p>
+        </div>
   </div>
 
   <!-- button to move slide -->

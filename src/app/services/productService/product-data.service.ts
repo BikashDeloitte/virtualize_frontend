@@ -22,15 +22,14 @@ export class ProductDataService{
     this.type = localStorage.getItem('category');
     const length = this.type.length
     this.type = this.type.substring(1,this.type.length-1)
+    return this.type
   }
 
   /**
    * This function will fetch all the product details form apis.
    */
    fetchProductData(){
-    // if (this.type == undefined) {
       this.getCategory()
-    // }
     const productDataUrl= environment.productUrl + "/" + this.type;
     return this.http.get(productDataUrl).pipe(retry(1),catchError(this.httpErrorProduct));
   }
