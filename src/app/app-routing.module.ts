@@ -1,5 +1,6 @@
 import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { from } from 'rxjs';
 import { ContainerComponent } from './container/container.component';
 import { AddProductsComponent } from './pages/admin/add-products/add-products.component';
 import { AddStoresComponent } from './pages/admin/add-stores/add-stores.component';
@@ -18,6 +19,7 @@ import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboa
 import { ProductPageComponent } from './product-page/product-page.component';
 import { AdminGuard } from './services/admin.guard';
 import { NormalGuard } from './services/normal.guard';
+import {NotificationPageComponent} from './notification-page/notification-page.component'
 const routes: Routes = [
   {
     path:'',
@@ -95,6 +97,11 @@ const routes: Routes = [
     path:'user-dashboard',
     component:UserDashboardComponent,
     canActivate:[NormalGuard],
+  },
+  {
+    path:'notification-page',
+    component:NotificationPageComponent,
+    pathMatch:'full',
   }
 ];
 

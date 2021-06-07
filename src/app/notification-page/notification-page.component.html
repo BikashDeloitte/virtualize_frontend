@@ -1,1 +1,15 @@
-<p>notification-page works!</p>
+<!--container to contain the all notification-->
+<div class="notificationContainer">
+    <!--header of the container-->
+    <div class="notificationHeader">
+        <h1><strong>Notification</strong></h1>
+    </div>
+    <hr>
+    <!--notification content-->
+    <div class="notificationContent" *ngFor = "let note of notification">
+        <img src="../../assets/images/cloth2.jpg">
+        <a href="#">{{note}}</a>
+    </div>
+</div>
+
+<app-footer></app-footer>
