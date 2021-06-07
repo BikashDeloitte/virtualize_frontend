@@ -20,6 +20,8 @@ export class ProductPageComponent implements OnInit {
   expansionPlane:number[] = [];
   productExpansionPlane = 0;
   loaded = false;
+  recommatedProduct = [];
+  recommatedProductName:any;
 
   constructor(private _productDataService: ProductDataService, private _particularProductDataService: ParticularProductDetailService) {
   }
@@ -31,10 +33,12 @@ export class ProductPageComponent implements OnInit {
     //for product data
     this._productDataService.fetchProductData().subscribe((Response: any) => {
       this.productId = parseInt(JSON.parse(this._particularProductDataService.get()))
+      this.recommatedProductName = JSON.parse(this._particularProductDataService.getType())
       this.product = Response;
       this.storeParticularProductDetail();
       this.differentiateDiscount()
       this.loaded = true;
+      console.log(this.productData)
     });
 
   }
@@ -55,8 +59,12 @@ export class ProductPageComponent implements OnInit {
       if (element.productId == this.productId) {
         this.productData = element;
       }
+      if(element.productName == this.recommatedProductName){
+        this.recommatedProduct.push(element)
+      }
     });
     this._productDataService.getCategory();
+    console.log(this.recommatedProduct)
   }
 
   //array with 1 for explansion plane to differentiate decsribsion of discount

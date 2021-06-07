@@ -95,7 +95,8 @@ export class DashboardComponent implements OnInit {
 
     this.productData.forEach(element => {
       if (element.productId == event) {
-        const category = element.categoryType
+        // const category = element.categoryType
+        this._sendProductDetail.setType(element.productName);
         this._sendProductDetail.set(event)
       }
     })

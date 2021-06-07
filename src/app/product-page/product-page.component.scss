@@ -68,7 +68,7 @@ p{
         flex-direction: column;
         gap: 1vw;
 
-        .productInfo,.productOffer{
+        .productInfo,.productOffer, .recommedation{
             @include card(1vw);
             background-color: $background-color;
             border-radius: 2vw;
@@ -169,18 +169,9 @@ p{
                     flex-grow: 2;
                 }
 
-                //product and shop name
-                .productName{
-                    color: $name-color;
-                }
-
                 //product type
                 .productType{
                     @include detailDesign();
-                }
-
-                .productRealPrice{
-                   @include detailDesign();
                 }
 
                 .productDescription{
@@ -195,6 +186,67 @@ p{
                     &>img{
                         width: 1vw;
                     }
+                }
+            }
+        }
+
+        //product and shop name
+        .productName{
+            color: $name-color;
+        }
+        // original price of product
+        .productRealPrice{
+            @include detailDesign();
+         }
+
+        //recommedation better product discount
+        .recommedation{
+            display: grid;
+            gap: 1vw;
+
+            &>p:first-child{
+                @include title(center);
+            }
+
+            .recommendedProductDetails{
+                flex-grow: 2;
+                display: grid;
+                margin: 1vw;
+
+                .productDiscountPrice{
+                    display: grid;
+                    grid-template-columns: 30% 30% 40%;
+                    
+                    &>p{
+                        font-size: 1.2vw;
+                    }
+                    &>p:last-child{
+                        color: $base-color;
+                    }
+                }
+            }
+
+            .recommedationProduct{
+                border: 1px solid $base-color;
+                border-radius: 5px;
+                display: flex;
+
+                .recommendedProductImage{
+                    width: 10vw;
+
+                    &>img{
+                        padding: 1vw;
+                        width: 100%;
+                    }
+                }
+            }
+
+            .arrowImage{
+                width: 2vw;
+                align-self: center;
+
+                &>img{
+                    width: 100%;
                 }
             }
         }
