@@ -1,10 +1,27 @@
+<!--notification container-->
 <div class="dropdown">
+    <!--notification visible button on nav bar-->
     <button class="dropbtn">
         <img src="../../assets/images/bell.jpg">
     </button>
+    
+    <!--notification context-->
     <div class="dropdown-content">
-        <div *ngFor = "let note of notification">
+
+        <div class="notificationTitle">
+            <p><strong>Notification</strong></p>
+        </div>
+
+        <div class="notificationContent" *ngFor = "let note of notification">
+            <img src="../../assets/images/cloth2.jpg">
             <a href="#">{{note}}</a>
+        </div>
+
+        <!--link to go notification page-->
+        <div class="viewAllNotification">
+            <a href="#">
+                View all notification
+            </a>
         </div>
     </div>
   </div>

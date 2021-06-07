@@ -50,6 +50,7 @@ import { FilterPipe } from './Pipes/filter.pipe';
 import { UpdateStoreComponent } from './pages/admin/update-store/update-store.component';
 import { UpdateProductComponent } from './pages/admin/update-product/update-product.component';
 import { NotificationBarComponent } from './notification-bar/notification-bar.component';
+import { NotificationPageComponent } from './notification-page/notification-page.component';
 
 
 @NgModule({
@@ -80,7 +81,8 @@ import { NotificationBarComponent } from './notification-bar/notification-bar.co
     FilterPipe,
     UpdateStoreComponent,
     UpdateProductComponent,
-    NotificationBarComponent
+    NotificationBarComponent,
+    NotificationPageComponent
   ],
   imports: [
     BrowserModule,
